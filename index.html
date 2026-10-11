@@ -19,68 +19,32 @@
 <meta name="color-scheme" content="light dark" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@600;700&family=Noto+Sans+Arabic:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&display=swap" rel="stylesheet" />
 <style>
   /* Layout: a reading column for the argument, wide evidence rows for screenshots and tables. */
   :root {
-    --bg: #f4f6f3;
+    color-scheme: light;
+    --bg: #ffffff;
+    --panel: #f5f7f6;
     --surface: #ffffff;
-    --ink: #13261d;
-    --ink-2: #46544b;
-    --muted: #5f6b63;
-    --line: #dbe2dc;
-    --brand: #0f3a29;
-    --accent: #a8560e;
+    --ink: #1a221e;
+    --ink-2: #414b46;
+    --muted: #5f6964;
+    --line: #e2e7e4;
+    --brand: #1e6b45;
+    --accent: #b35a0d;
     --accent-fill: #e27b20;
-    --critical: #b02d1c;
-    --high: #9a5a00;
-    --good: #1d6f45;
-    --critical-bg: #fbe9e6;
-    --high-bg: #fbf0dc;
-    --good-bg: #e3f2e8;
-    --display: "Noto Kufi Arabic", "Noto Sans Arabic", system-ui, sans-serif;
-    --body: "Noto Sans Arabic", system-ui, sans-serif;
-    --mono: "Geist Mono", ui-monospace, Consolas, monospace;
+    --critical: #c0392b;
+    --high: #9e5800;
+    --good: #1e7a4b;
+    --critical-bg: #fdecea;
+    --high-bg: #fff2df;
+    --good-bg: #e6f4eb;
+    --display: "Almarai", system-ui, sans-serif;
+    --body: "Almarai", system-ui, sans-serif;
+    --mono: "Almarai", system-ui, sans-serif;
     --read: 46rem;
     --wide: 72rem;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --bg: #0e1612;
-      --surface: #15201a;
-      --ink: #e7eee9;
-      --ink-2: #bac7be;
-      --muted: #97a69c;
-      --line: #273a30;
-      --brand: #9fd2ae;
-      --accent: #f0a160;
-      --accent-fill: #e27b20;
-      --critical: #ff9a88;
-      --high: #f3bf62;
-      --good: #85d4a3;
-      --critical-bg: #3a1d18;
-      --high-bg: #362812;
-      --good-bg: #173326;
-      color-scheme: dark;
-    }
-  }
-  :root[data-theme="dark"] {
-    --bg: #0e1612;
-    --surface: #15201a;
-    --ink: #e7eee9;
-    --ink-2: #bac7be;
-    --muted: #97a69c;
-    --line: #273a30;
-    --brand: #9fd2ae;
-    --accent: #f0a160;
-    --accent-fill: #e27b20;
-    --critical: #ff9a88;
-    --high: #f3bf62;
-    --good: #85d4a3;
-    --critical-bg: #3a1d18;
-    --high-bg: #362812;
-    --good-bg: #173326;
-    color-scheme: dark;
   }
 
   * { box-sizing: border-box; }
@@ -96,7 +60,8 @@
     line-height: 1.85;
     -webkit-font-smoothing: antialiased;
   }
-  h1, h2, h3 { font-family: var(--display); line-height: 1.4; letter-spacing: normal; text-wrap: balance; margin: 0; }
+  h1, h2, h3 { font-family: var(--display); font-weight: 800; line-height: 1.45; letter-spacing: normal; text-wrap: balance; margin: 0; }
+  h3 { font-weight: 700; }
   p { margin: 0; text-wrap: pretty; }
   a { color: var(--brand); text-underline-offset: 0.25em; }
   a:focus-visible, input:focus-visible { outline: 2px solid var(--accent-fill); outline-offset: 3px; }
@@ -127,7 +92,7 @@
     overflow: hidden;
   }
   .fact { display: grid; gap: 0.4rem; align-content: start; padding: 1.25rem 1.25rem 1.4rem; background: var(--surface); min-width: 0; }
-  .fact b { font-family: var(--mono); font-weight: 500; font-size: clamp(1.75rem, 1.2rem + 1.6vw, 2.4rem); line-height: 1.1; color: var(--critical); direction: ltr; text-align: end; }
+  .fact b { font-family: var(--mono); font-weight: 800; font-size: clamp(1.75rem, 1.2rem + 1.6vw, 2.4rem); line-height: 1.1; color: var(--critical); direction: ltr; text-align: end; }
   .fact span { font-size: 0.875rem; line-height: 1.6; color: var(--ink-2); }
 
   /* sections */
@@ -157,7 +122,7 @@
   table { width: 100%; border-collapse: collapse; font-size: 0.9375rem; }
   th, td { padding: 0.7rem 1rem; text-align: start; border-bottom: 1px solid var(--line); vertical-align: top; }
   tr:last-child td { border-bottom: 0; }
-  th { font-weight: 600; color: var(--muted); font-size: 0.8125rem; background: color-mix(in srgb, var(--surface) 70%, var(--bg)); }
+  th { font-weight: 700; color: var(--muted); font-size: 0.8125rem; background: var(--panel); }
   td.num { font-family: var(--mono); font-variant-numeric: tabular-nums; direction: ltr; text-align: end; white-space: nowrap; }
   td .bad { color: var(--critical); }
   td .ok { color: var(--good); }
@@ -206,9 +171,12 @@
   .cta p { color: inherit; opacity: 0.85; }
   .contact { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; margin-top: 0.4rem; font-weight: 600; }
   .contact a { color: inherit; }
-  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .cta { color: #0e1612; } }
-  :root[data-theme="dark"] .cta { color: #0e1612; }
 
+  .demo-link { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1.25rem; margin-top: 1.75rem; color: var(--muted); font-size: 0.9375rem; }
+  .demo-btn { display: inline-flex; align-items: center; min-height: 48px; padding: 0.6rem 1.4rem; border-radius: 8px; background: var(--brand); color: #fff; font-weight: 700; text-decoration: none; }
+  .demo-btn:hover { background: #17573a; }
+  .demo-btn--light { background: #fff; color: var(--brand); }
+  .demo-btn--light:hover { background: #eef5f1; }
   .method { margin-top: 2.5rem; font-size: 0.875rem; color: var(--muted); }
   .method h3 { font-size: 0.9375rem; margin-bottom: 0.4rem; color: var(--ink-2); }
 
@@ -226,23 +194,24 @@
   <p class="kicker">مقترح لتطوير الموقع الإلكتروني</p>
   <h1>موقع الجمعية السعودية للزراعة العضوية: <span>ما يراه الزائر اليوم، وكيف يمكن أن يكون</span></h1>
   <p class="byline">
-    <span>أُعدّ في <time datetime="2026-10-11">11 أكتوبر 2026</time></span>
-    <span>إعداد: إسلام ناصر، مصمم UI/UX ومطوّر واجهات أمامية</span>
+    <span>أعد في <time datetime="2026-10-11">11 أكتوبر 2026</time></span>
+    <span>إعداد: إسلام ناصر، مصمم UI/UX ومطور واجهات أمامية</span>
     <span>الموقع: <span class="ltr">sofa.org.sa</span></span>
   </p>
   <p class="lead">
-    راجعنا الصفحة الرئيسية للموقع على الجوال والكمبيوتر، وقِسنا سرعتها بأداة
+    راجعنا الصفحة الرئيسية للموقع على الجوال والكمبيوتر، وقسنا سرعتها بأداة
     <span class="ltr">Google PageSpeed</span>، ثم بنينا نسخة جديدة كاملة للصفحة الرئيسية
     بمحتوى الجمعية الحالي نفسه: أخبارها، وخدماتها الإحدى عشرة، ودليل الجهات الذي تعرضه
-    الخريطة (474 سجلًا). يعرض هذا المستند ما وجدناه بالأرقام، وما يقدّمه التصميم الجديد.
+    الخريطة (474 سجلا). يعرض هذا المستند ما وجدناه بالأرقام، وما يقدمه التصميم الجديد.
   </p>
 
   <div class="facts" role="list">
     <div class="fact" role="listitem"><b>63/100</b><span>درجة أداء الصفحة على الجوال حسب Google</span></div>
     <div class="fact" role="listitem"><b>5.4s</b><span>حتى يظهر أكبر عنصر في الصفحة على الجوال، والجيد أقل من 2.5 ثانية</span></div>
-    <div class="fact" role="listitem"><b>7.8MB</b><span>تُحمَّل في أول زيارة على الجوال، منها 5.1 ميجا لصورتين فقط</span></div>
+    <div class="fact" role="listitem"><b>7.8MB</b><span>تحمل في أول زيارة على الجوال، منها 5.1 ميجا لصورتين فقط</span></div>
     <div class="fact" role="listitem"><b>2×</b><span>عرض الصفحة ضعف عرض الشاشة على الجوال والكمبيوتر</span></div>
   </div>
+  <p class="demo-link"><a class="demo-btn" href="https://imsemoo.github.io/sofa-review/demo/">افتح التصميم الجديد وجربه</a><span>يعمل على الجوال والكمبيوتر، والخريطة والبحث فيه يعملان ببيانات الدليل الحالي.</span></p>
 </header>
 
 <main>
@@ -256,8 +225,8 @@
       <h3><span class="sev sev--critical">حرج</span> الصفحة أعرض من الشاشة بمرتين</h3>
       <p>
         على الكمبيوتر يبلغ عرض الصفحة 2880 بكسل والشاشة 1440، وعلى الجوال 780 مقابل 390.
-        أي سحبة جانبية تكشف نصف صفحة فارغًا، أو تُظهر الشريحة التالية بجوار الأولى، فيبدو
-        الموقع مكسورًا أثناء التصفح. ويسجّل مقياس ثبات التخطيط على الكمبيوتر
+        أي سحبة جانبية تكشف نصف صفحة فارغا، أو تظهر الشريحة التالية بجوار الأولى، فيبدو
+        الموقع مكسورا أثناء التصفح. ويسجل مقياس ثبات التخطيط على الكمبيوتر
         <span class="mono">0.995</span>، والحد المقبول عند Google هو <span class="mono">0.1</span>.
       </p>
       <figure class="evidence">
@@ -312,7 +281,7 @@
       </div>
       <figure class="evidence">
         <div class="shot"><img src="img/before-events.jpg" width="1200" height="750" alt="قسم الفعاليات في الموقع الحالي: عنوان وزر بلون أبيض على خلفية بيج" loading="lazy" /></div>
-        <figcaption>قسم الفعاليات: العنوان والزر بلون قريب جدًا من الخلفية.</figcaption>
+        <figcaption>قسم الفعاليات: العنوان والزر بلون قريب جدا من الخلفية.</figcaption>
       </figure>
     </article>
   </section>
@@ -342,9 +311,9 @@
     <article class="finding">
       <h3>أسباب البطء</h3>
       <ul>
-        <li>صورتان بصيغة <span class="ltr">PNG</span> وزن كل منهما 2.5 ميجا (شريحة المزارع وصورة المعرض)، ويكفي كلًّا منهما نحو 150 كيلوبايت بعد التحويل إلى <span class="ltr">WebP</span>.</li>
-        <li>20 ملف تنسيقات و7 ملفات برمجية تُحمَّل قبل ظهور أي محتوى، من 8 خوادم مختلفة.</li>
-        <li>مكتبة <span class="ltr">Bootstrap</span> محمّلة أكثر من مرة، إحداها نسخة تجريبية (<span class="ltr">5.3.0-alpha1</span>) غير مخصصة لمواقع الإنتاج، ومعها مكتبتان للشرائح المتحركة تؤديان العمل نفسه.</li>
+        <li>صورتان بصيغة <span class="ltr">PNG</span> وزن كل منهما 2.5 ميجا (شريحة المزارع وصورة المعرض)، ويكفي كلا منهما نحو 150 كيلوبايت بعد التحويل إلى <span class="ltr">WebP</span>.</li>
+        <li>20 ملف تنسيقات و7 ملفات برمجية تحمل قبل ظهور أي محتوى، من 8 خوادم مختلفة.</li>
+        <li>مكتبة <span class="ltr">Bootstrap</span> محملة أكثر من مرة، إحداها نسخة تجريبية (<span class="ltr">5.3.0-alpha1</span>) غير مخصصة لمواقع الإنتاج، ومعها مكتبتان للشرائح المتحركة تؤديان العمل نفسه.</li>
         <li>الخريطة التفاعلية والشرائح مكتوبتان مرتين داخل الصفحة (نسخة للجوال وأخرى للكمبيوتر)، فيصل حجم ملف الصفحة وحده إلى نحو 460 كيلوبايت.</li>
         <li>الخادم في الولايات المتحدة، وزمن أول استجابة نحو 1.2 ثانية في قياسنا من خارج المملكة.</li>
       </ul>
@@ -360,7 +329,7 @@
     <article class="finding">
       <h3><span class="sev sev--high">مرتفع</span> أخطاء إملائية في أماكن بارزة</h3>
       <ul class="typos">
-        <li><s>إشتر عضوي</s> ← <b>اشترِ عضويًا</b></li>
+        <li><s>إشتر عضوي</s> ← <b>اشتر عضويا</b></li>
         <li><s>إتصل بنا</s> ← <b>اتصل بنا</b></li>
         <li><s>المشاركة فى الفعليات</s> ← <b>في الفعاليات</b></li>
         <li><s>من عام 2018 إلي 2025</s> ← <b>إلى</b></li>
@@ -368,7 +337,7 @@
         <li><s>تابعنا علي</s> ← <b>على</b></li>
         <li><s>وزارة البيئة المياه والزراعة</s> ← <b>البيئة والمياه</b></li>
         <li><s>القطاع الغير ربحي</s> ← <b>القطاع غير الربحي</b></li>
-        <li><s>أنشات بموجب قرار</s> ← <b>أُنشئت</b></li>
+        <li><s>أنشات بموجب قرار</s> ← <b>أنشئت</b></li>
         <li><s>اعتباريه، توعويه، العضويه</s> ← <b>بالتاء المربوطة</b></li>
       </ul>
     </article>
@@ -378,7 +347,7 @@
       <ul>
         <li>رابط البريد مكتوب كعنوان صفحة (<span class="ltr">sofa.org.sa/info@sofa.org.sa</span>)، فيفتح صفحة خطأ بدل برنامج البريد.</li>
         <li>رابط الهاتف مكتوب <span class="ltr">tell:</span> بدل <span class="ltr">tel:</span>، فلا يتصل عند الضغط عليه من الجوال.</li>
-        <li>أيقونة إنستغرام بلا رابط، و13 رابطًا في الصفحة يشير إلى <span class="ltr">#</span> ولا يفتح شيئًا.</li>
+        <li>أيقونة إنستغرام بلا رابط، و13 رابطا في الصفحة يشير إلى <span class="ltr">#</span> ولا يفتح شيئا.</li>
         <li>شعارات المتاجر التسعة صور لا يمكن الضغط عليها للوصول إلى المتجر.</li>
       </ul>
     </article>
@@ -387,17 +356,17 @@
       <h3><span class="sev sev--mid">متوسط</span> محتوى قديم، وأهم دعوة تفتح ملف PDF</h3>
       <ul>
         <li>حقوق النشر في أسفل الصفحة © 2024، وعنصر «يوم الغذاء العضوي 11-11-2025» ما زال في القائمة.</li>
-        <li>رابط «كن مزارعًا عضويًا» أعلى الصفحة يفتح ملف <span class="ltr">PDF</span>، ولا يوصل المزارع إلى خدمة «التحول للإنتاج العضوي» الموجودة فعلًا في الموقع.</li>
-        <li>القائمة الرئيسية فيها نحو 50 رابطًا، منها 14 عنصرًا تحت «الإعلام والمعرفة» وحده.</li>
+        <li>رابط «كن مزارعا عضويا» أعلى الصفحة يفتح ملف <span class="ltr">PDF</span>، ولا يوصل المزارع إلى خدمة «التحول للإنتاج العضوي» الموجودة فعلا في الموقع.</li>
+        <li>القائمة الرئيسية فيها نحو 50 رابطا، منها 14 عنصرا تحت «الإعلام والمعرفة» وحده.</li>
       </ul>
     </article>
 
     <article class="finding">
-      <h3><span class="sev sev--mid">متوسط</span> دليل الجهات يحتاج تنظيفًا</h3>
+      <h3><span class="sev sev--mid">متوسط</span> دليل الجهات يحتاج تنظيفا</h3>
       <p>
-        من 474 سجلًا تعرضها الخريطة: 9 سجلات مكررة (منها «بستان البركة» 3 مرات في مكة المكرمة،
+        من 474 سجلا تعرضها الخريطة: 9 سجلات مكررة (منها «بستان البركة» 3 مرات في مكة المكرمة،
         و«مزرعة دليلة العضوية» مرتين في الرياض)، و5 سجلات بأسماء غير صالحة مثل «مزرعه» و«الباحة»
-        و«فرع الباحة» و«مزارع جديد». و«مصنع المراعي للأسمدة» مصنّف ضمن منافذ البيع.
+        و«فرع الباحة» و«مزارع جديد». و«مصنع المراعي للأسمدة» مصنف ضمن منافذ البيع.
       </p>
     </article>
   </section>
@@ -408,12 +377,12 @@
     </div>
     <article class="finding">
       <ul>
-        <li>عند مشاركة رابط الموقع في واتساب أو منصة X لا تظهر صورة ولا وصف منسّق، لأن الصفحة بلا وسوم <span class="ltr">Open Graph</span>.</li>
+        <li>عند مشاركة رابط الموقع في واتساب أو منصة X لا تظهر صورة ولا وصف منسق، لأن الصفحة بلا وسوم <span class="ltr">Open Graph</span>.</li>
         <li>لا يوجد رابط أساسي (<span class="ltr">canonical</span>)، ونسخة <span class="ltr">www.sofa.org.sa</span> تعمل كموقع منفصل، فيرى Google نسختين من الموقع.</li>
         <li>العنوانان الرئيسيان (<span class="ltr">H1</span>) في الصفحة هما «أخبار الجمعية» و«الفعاليات والمعارض»، ولا يوجد عنوان رئيسي باسم الجمعية أو رسالتها.</li>
         <li>54 صورة من 55 بلا وصف بديل، فلا يفهمها قارئ الشاشة ولا تظهر في بحث الصور.</li>
         <li>ملف <span class="ltr">sitemap.xml</span> مكتوب بصيغة غير صحيحة، وملف <span class="ltr">robots.txt</span> لا يشير إليه.</li>
-        <li>النسخة الإنجليزية تتبدّل على الرابط نفسه بحسب جلسة المتصفح، فلا يوجد لها رابط مستقل يستطيع Google فهرسته.</li>
+        <li>النسخة الإنجليزية تتبدل على الرابط نفسه بحسب جلسة المتصفح، فلا يوجد لها رابط مستقل يستطيع Google فهرسته.</li>
       </ul>
     </article>
   </section>
@@ -425,7 +394,7 @@
     <article class="finding">
       <ul>
         <li>خطأ برمجي في كل تحميل للصفحة: الملف <span class="ltr">custom.js</span> يبحث عن متغير من نظام SharePoint غير موجود في الموقع (<span class="ltr">_spPageContextInfo</span>).</li>
-        <li>43 معرّفًا (<span class="ltr">id</span>) مكررًا في الصفحة بسبب تكرار الأقسام.</li>
+        <li>43 معرفا (<span class="ltr">id</span>) مكررا في الصفحة بسبب تكرار الأقسام.</li>
         <li>ملفات تعريف الارتباط الخاصة بالجلسة بلا الخاصية <span class="ltr">Secure</span>، ولا توجد ترويسات الحماية <span class="ltr">HSTS</span> و<span class="ltr">CSP</span>.</li>
       </ul>
     </article>
@@ -453,8 +422,8 @@
     </div>
     <p class="compare-note read">
       الشعار أكبر وواضح فوق الصورة، والعنوان نص حقيقي يقرؤه Google وقارئ الشاشة، ودعوة المعرض
-      بطاقة فيها التاريخ والمكان ورقم الجناح وعدّاد تنازلي حتى الافتتاح، وتحتها شريط بأهم الأرقام.
-      وعند النزول في الصفحة يتحوّل الشريط العلوي إلى خلفية فاتحة بالشعار الملوّن.
+      بطاقة فيها التاريخ والمكان ورقم الجناح وعداد تنازلي حتى الافتتاح، وتحتها شريط بأهم الأرقام.
+      وعند النزول في الصفحة يتحول الشريط العلوي إلى خلفية فاتحة بالشعار الملون.
     </p>
 
     <section aria-labelledby="s-new-mobile">
@@ -468,8 +437,8 @@
     <section aria-labelledby="s-new-menu">
       <div class="read"><h3 id="s-new-menu" class="sub-title">القائمة الرئيسية</h3></div>
       <figure class="evidence">
-        <div class="shot"><img src="img/after-mega.jpg" width="1200" height="750" alt="قائمة خدمات المساندة في التصميم الجديد مقسّمة إلى ثلاث مجموعات مع بطاقة لجميع الخدمات" loading="lazy" /></div>
-        <figcaption>الروابط في مجموعات واضحة بدل نحو 50 رابطًا متتاليًا.</figcaption>
+        <div class="shot"><img src="img/after-mega.jpg" width="1200" height="750" alt="قائمة خدمات المساندة في التصميم الجديد مقسمة إلى ثلاث مجموعات مع بطاقة لجميع الخدمات" loading="lazy" /></div>
+        <figcaption>الروابط في مجموعات واضحة بدل نحو 50 رابطا متتاليا.</figcaption>
       </figure>
     </section>
 
@@ -477,16 +446,16 @@
       <div class="read"><h3 id="s-new-map" class="sub-title">دليل القطاع على الخريطة</h3></div>
       <div class="pair">
         <figure><p class="tag tag--before">الآن</p><div class="shot"><img src="img/before-map.jpg" width="1200" height="750" alt="الخريطة في الموقع الحالي مع قائمة مزارع منطقة الرياض" loading="lazy" /></div></figure>
-        <figure><p class="tag tag--after">الجديد</p><div class="shot"><img src="img/after-map3d.jpg" width="1200" height="750" alt="الخريطة المجسّمة الجديدة: أسماء المناطق وعدد المزارع في كل منطقة، ومنطقة الرياض مرتفعة ومختارة" loading="lazy" /></div></figure>
+        <figure><p class="tag tag--after">الجديد</p><div class="shot"><img src="img/after-map3d.jpg" width="1200" height="750" alt="الخريطة المجسمة الجديدة: أسماء المناطق وعدد المزارع في كل منطقة، ومنطقة الرياض مرتفعة ومختارة" loading="lazy" /></div></figure>
       </div>
       <p class="compare-note read">
-        خريطة مجسّمة بأسماء المناطق وعدد الجهات في كل منطقة، والمنطقة المختارة ترتفع عن الخريطة.
-        والبحث بالاسم يشمل كل المناطق، فتتلوّن الخريطة بأماكن النتائج، وكل اسم يفتح صفحة الجهة في
+        خريطة مجسمة بأسماء المناطق وعدد الجهات في كل منطقة، والمنطقة المختارة ترتفع عن الخريطة.
+        والبحث بالاسم يشمل كل المناطق، فتتلون الخريطة بأماكن النتائج، وكل اسم يفتح صفحة الجهة في
         الموقع الحالي. البيانات هي بيانات الخريطة الحالية بعد حذف المكرر.
       </p>
       <figure class="evidence">
         <div class="shot"><img src="img/after-search.jpg" width="1200" height="750" alt="البحث عن كلمة عسل في الخريطة الجديدة: أربع نتائج في أربع مناطق" loading="lazy" /></div>
-        <figcaption>البحث عن «عسل»: أربع جهات في أربع مناطق، والخريطة تُظهر أماكنها.</figcaption>
+        <figcaption>البحث عن «عسل»: أربع جهات في أربع مناطق، والخريطة تظهر أماكنها.</figcaption>
       </figure>
     </section>
 
@@ -497,7 +466,7 @@
         <figure><p class="tag tag--after">الجديد</p><div class="shot"><img src="img/after-stats.jpg" width="1200" height="750" alt="قسم الأرقام الجديد: 118 مزرعة عضوية و207 تحت التحول و83 منفذ بيع ومعدلات النمو" loading="lazy" /></div></figure>
       </div>
       <p class="compare-note read">
-        أعداد فعلية من الدليل: 118 مزرعة عضوية، و207 مزارع تحت التحول، و83 منفذ بيع، و36 مُدخل
+        أعداد فعلية من الدليل: 118 مزرعة عضوية، و207 مزارع تحت التحول، و83 منفذ بيع، و36 مدخل
         إنتاج، ومعدلات النمو من 2018 إلى 2025 كأشرطة مقارنة.
       </p>
     </section>
@@ -511,16 +480,16 @@
     </section>
 
     <div class="read" style="margin-top: 2.5rem">
-      <h3 class="sub-title">وما تغيّر أيضًا</h3>
+      <h3 class="sub-title">وما تغير أيضا</h3>
       <ul class="fixes">
         <li>الخدمات الإحدى عشرة في مجموعتين واضحتين، وكل خدمة تفتح صفحتها مباشرة.</li>
-        <li>خطوات «كيف أصبح مزارعًا عضويًا» الأربع من صفحة الجمعية نفسها، مع زر مباشر إلى منصة الوزارة.</li>
-        <li>تباين كل النصوص 4.98:1 أو أعلى، ووصف لكل صورة، وعنوان رئيسي واحد، وتنقّل كامل بلوحة المفاتيح.</li>
-        <li>القائمة الرئيسية في ست مجموعات بدل نحو 50 رابطًا متتاليًا، مع قائمة جانبية للجوال.</li>
-        <li>الفيديو لا يُحمَّل من YouTube إلا عند الضغط عليه.</li>
+        <li>خطوات «كيف أصبح مزارعا عضويا» الأربع من صفحة الجمعية نفسها، مع زر مباشر إلى منصة الوزارة.</li>
+        <li>تباين كل النصوص 4.98:1 أو أعلى، ووصف لكل صورة، وعنوان رئيسي واحد، وتنقل كامل بلوحة المفاتيح.</li>
+        <li>القائمة الرئيسية في ست مجموعات بدل نحو 50 رابطا متتاليا، مع قائمة جانبية للجوال.</li>
+        <li>الفيديو لا يحمل من YouTube إلا عند الضغط عليه.</li>
         <li>الخطوط مضغوطة بصيغة <span class="ltr">WOFF2</span>: نحو 75 كيلوبايت بدل 320 للخط الواحد.</li>
-        <li>وسوم المشاركة وبيانات الجمعية المنظَّمة لمحركات البحث جاهزة.</li>
-        <li>روابط الهاتف والبريد وواتساب تعمل، والسنة في أسفل الصفحة تتحدّث تلقائيًا.</li>
+        <li>وسوم المشاركة وبيانات الجمعية المنظمة لمحركات البحث جاهزة.</li>
+        <li>روابط الهاتف والبريد وواتساب تعمل، والسنة في أسفل الصفحة تتحدث تلقائيا.</li>
       </ul>
     </div>
   </section>
@@ -528,7 +497,7 @@
   <section class="read" aria-labelledby="s-numbers">
     <div class="sec-title">
       <h2 id="s-numbers">قبل وبعد بالأرقام</h2>
-      <p>قِيس الموقعان بالطريقة نفسها: متصفح Edge، جوال بعرض 390 بكسل، دون ذاكرة مؤقتة.</p>
+      <p>قيس الموقعان بالطريقة نفسها: متصفح Edge، جوال بعرض 390 بكسل، دون ذاكرة مؤقتة.</p>
     </div>
     <div class="table-wrap">
       <table>
@@ -539,7 +508,7 @@
           <tr><td>وزن أول تحميل على الجوال</td><td class="num"><span class="bad">7.8 MB</span></td><td class="num"><span class="ok">1.5 MB</span></td></tr>
           <tr><td>عدد الطلبات في أول تحميل</td><td class="num">79</td><td class="num"><span class="ok">38</span></td></tr>
           <tr><td>ملفات التنسيقات</td><td class="num">20</td><td class="num"><span class="ok">3</span></td></tr>
-          <tr><td>ملفات برمجية تؤخّر ظهور الصفحة</td><td class="num">7</td><td class="num"><span class="ok">0</span></td></tr>
+          <tr><td>ملفات برمجية تؤخر ظهور الصفحة</td><td class="num">7</td><td class="num"><span class="ok">0</span></td></tr>
           <tr><td>صور بلا وصف بديل</td><td class="num"><span class="bad">54 / 55</span></td><td class="num"><span class="ok">0 / 36</span></td></tr>
           <tr><td>أدنى تباين لنص عادي</td><td class="num"><span class="bad">1.31 : 1</span></td><td class="num"><span class="ok">4.98 : 1</span></td></tr>
           <tr><td>أخطاء برمجية عند التحميل</td><td class="num"><span class="bad">1</span></td><td class="num"><span class="ok">0</span></td></tr>
@@ -561,7 +530,7 @@
     </div>
     <ol class="plan">
       <li><div><b>اعتماد التصميم</b><span>مراجعة التصميم مع فريق الجمعية، واستبدال الصور التوضيحية بصور الجمعية الرسمية.</span></div></li>
-      <li><div><b>تنفيذه على الموقع الحالي</b><span>ربط الصفحة الرئيسية بلوحة التحكم الحالية، فتُدار الأخبار والفعاليات والأرقام من الإدارة نفسها دون تغيير النظام.</span></div></li>
+      <li><div><b>تنفيذه على الموقع الحالي</b><span>ربط الصفحة الرئيسية بلوحة التحكم الحالية، فتدار الأخبار والفعاليات والأرقام من الإدارة نفسها دون تغيير النظام.</span></div></li>
       <li><div><b>الصفحات الداخلية</b><span>صفحات الخبر والخدمة والجهة والدليل الكامل بالأسلوب نفسه.</span></div></li>
       <li><div><b>السرعة والظهور في Google</b><span>ضغط الصور، وتوحيد الملفات، ووسوم المشاركة، وخريطة الموقع، وتقديم الموقع من خوادم قريبة من المملكة.</span></div></li>
       <li><div><b>تنظيف الدليل</b><span>إزالة السجلات المكررة وغير الصالحة، ومنع تكرارها عند الإدخال.</span></div></li>
@@ -570,6 +539,7 @@
     <div class="cta">
       <h2>إذا رغبتم في تطوير الموقع، فأنا جاهز للعمل عليه</h2>
       <p>أعمالي السابقة في معرض الأعمال، وأسعد بالرد على أي سؤال عن التقرير أو التصميم.</p>
+      <p><a class="demo-btn demo-btn--light" href="https://imsemoo.github.io/sofa-review/demo/">التصميم الجديد للصفحة الرئيسية</a></p>
       <p class="contact"><span>إسلام ناصر</span><span class="ltr">+20 100 295 2013</span><a href="https://wa.me/201002952013">واتساب</a><span class="ltr">en.developer2@gmail.com</span><a class="ltr" href="https://imsemoo.github.io/eslam-portfolio/ar/">imsemoo.github.io/eslam-portfolio</a><a class="ltr" href="https://www.linkedin.com/in/imsemooo">linkedin.com/in/imsemooo</a></p>
     </div>
 
